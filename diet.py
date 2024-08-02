@@ -16,8 +16,8 @@ all_carbs = []
 all_fat = []
 all_kjs = []
 
-justify = ' '
-precision = 2
+justify = " "
+line = "*"
 
 # A function to collect valid input for macro nutritional data
 # This function validates input to confirm (a) it is a number that fits the requirements of a float, and (b) that it is non-negative.
@@ -71,13 +71,15 @@ def right_align(input_string):
 # A guarded main function prevents the program being run when it is imported elsewhere?
 def main():
     # For UI and user-friendliness, provide feedback to user of program start/entry point.
-    print("\nWELCOME TO THE CODETOWN GENERAL HOSPITAL PATIENT NUTRITION SYSTEM:\n")
+    print("\n" + line*100)
+    print("WELCOME TO THE CODETOWN GENERAL HOSPITAL PATIENT NUTRITION SYSTEM:")
+    print(line*100 + "\n")
     # Requirement 1: "request the number of patient's dietary requirements that will be entered in the interaction with the program"
     patients = positive_int_only("\nHow many patients are you collecting data for, today? ")
 
 
     # For UI and user-friendliness, provide feedback and guidance to user of where they are in the program.
-    print("\nSTEP 1 of 2 - PATIENT NUTRITION COLLECTION:")
+    print("\n\nSTEP 1 of 2 - PATIENT NUTRITION COLLECTION:")
     # Requirement 2: "loop this number of times to collect the amount of protein, carbohydrates, and fat required for each patient."
     # Using range() allows the fort loop to be interable over an int
     for x in range(patients):
@@ -106,7 +108,7 @@ def main():
     ## print(all_kjs)
 
     # Calculate and Output Averages of All Four Lists
-    print("\nSTEP 2 of 2 - CALCULATED PATIENT INFORMATION:\n")
+    print("\n\nSTEP 2 of 2 - CALCULATED PATIENT INFORMATION:\n")
     protein_average_float = round(sum(all_protein) / len(all_protein),2)
     protein_average = right_align(str(f'{protein_average_float:.2f}'))
     print("Protein - The average protein for all patients is:" + justify*13 + protein_average + " grams")
@@ -123,8 +125,9 @@ def main():
     kjs_average = right_align(str(f'{kjs_average_float:.2f}'))
     print("Kilojoules - The average kilojoules for all patients is:" + justify*7 + kjs_average + " kJs\n")
 
-    print("\nTHE SYSTEM IS NOW COMPLETE: YOUR PATIENTS' NUTRITIONAL INFORMATION IS NOW AVAILABLE FOR USE.\nPLEASE CLOSE THIS PROGRAM OR RUN AGAIN. THANK YOU.\n")
-
+    print("\n" + line*100)
+    print("THE SYSTEM IS NOW COMPLETE: YOUR PATIENTS' NUTRITIONAL INFORMATION IS NOW AVAILABLE FOR USE.\nPLEASE CLOSE THIS PROGRAM OR RUN AGAIN. THANK YOU.")
+    print(line*100 + "\n")
 
 if __name__ == "__main__":
     """ This is executed when run from the command line """
