@@ -8,6 +8,17 @@ __author__ = "Axel Tracy"
 __version__ = "0.1.0"
 __license__ = "None. All Rights Reserved."
 
+
+# Initialise empty Lists for each macro.
+# Use Lists as they allow duplicates, are changeable, and can be looped through and worked on
+all_protein = []
+all_carbs = []
+all_fat = []
+all_kjs = []
+
+justify = ' '
+precision = 2
+
 # A function to collect valid input for macro nutritional data
 # This function validates input to confirm (a) it is a number that fits the requirements of a float, and (b) that it is non-negative.
 # For citing sources, this function is from learning from StackOverflow
@@ -47,12 +58,14 @@ def positive_int_only(prompt):
             break
     return value
 
-# Initialise empty Lists for each macro.
-# Use Lists as they allow duplicates, are changeable, and can be looped through and worked on
-all_protein = []
-all_carbs = []
-all_fat = []
-all_kjs = []
+def right_align(input_string):
+    info = input_string
+    characters = len(info)
+    blanks = 10 - characters
+    return (blanks*justify + info)
+
+# value = input("Enter string to justify: ")
+# right_justify(value)
 
 # Guarded main function, as per https://www.python-boilerplate.com/py3+executable
 # A guarded main function prevents the program being run when it is imported elsewhere?
@@ -95,20 +108,20 @@ def main():
     # Calculate and Output Averages of All Four Lists
     print("\nSTEP 2 of 2 - CALCULATED PATIENT INFORMATION:\n")
     protein_average_float = round(sum(all_protein) / len(all_protein),2)
-    protein_average = str(protein_average_float)
-    print("The average protein for all patients is " + protein_average + " grams.")
+    protein_average = right_align(str(f'{protein_average_float:.2f}'))
+    print("Protein - The average protein for all patients is:" + justify*13 + protein_average + " grams")
 
     carbs_average_float = round(sum(all_carbs) / len(all_carbs),2)
-    carbs_average = str(carbs_average_float)
-    print("The average carbohydrates for all patients is " + carbs_average + " grams.")
+    carbs_average = right_align(str(f'{carbs_average_float:.2f}'))
+    print("Carbohydrates - The average carbohydrates for all patients is:" + justify*1 + carbs_average + " grams")
 
     fat_average_float = round(sum(all_fat) / len(all_fat),2)
-    fat_average = str(fat_average_float)
-    print("The average fat for all patients is " + fat_average + " grams.")
+    fat_average = right_align(str(f'{fat_average_float:.2f}'))
+    print("Fat - The average fat for all patients is:" + justify*21 + fat_average + " grams")
 
     kjs_average_float = round(sum(all_kjs) / len(all_kjs),2)
-    kjs_average = str(kjs_average_float)
-    print("The average kilojoules for all patients is " + kjs_average + " kJs.\n")
+    kjs_average = right_align(str(f'{kjs_average_float:.2f}'))
+    print("Kilojoules - The average kilojoules for all patients is:" + justify*7 + kjs_average + " kJs\n")
 
     print("\nTHE SYSTEM IS NOW COMPLETE: YOUR PATIENTS' NUTRITIONAL INFORMATION IS NOW AVAILABLE FOR USE.\nPLEASE CLOSE THIS PROGRAM OR RUN AGAIN. THANK YOU.\n")
 
