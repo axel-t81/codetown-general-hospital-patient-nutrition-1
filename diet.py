@@ -17,9 +17,9 @@ __license__ = "None. All Rights Reserved."
 def non_negative_int_only(prompt):
     while True:
         try:
-            value = int(input(prompt))
+            value = float(input(prompt))
         except:
-            print("Sorry, I didn't understand your input. Let's try again, using a whole integer, with no decimal places, as input please.")
+            print("Sorry, I didn't understand your input. Let's try again, using a whole integer or number with decimal places, as input please.")
             continue
 
         if value < 0:
@@ -58,14 +58,14 @@ def main():
         x_string = str(x + 1)
 
         protein = non_negative_int_only("\nHow many grams of protein is required for patient " + x_string + "? ")
-        # Append most recent entry to end of appropriate List, and confirm entry is an integer
-        all_protein.append(int(protein))
+        # Append most recent entry to end of appropriate List.
+        all_protein.append(protein)
 
         carbs = non_negative_int_only("\nHow many grams of carbohydrates are required for patient " + x_string + "? ")
-        all_carbs.append(int(carbs))
+        all_carbs.append(carbs)
 
         fat = non_negative_int_only("\nHow many grams of fat is required for patient " + x_string + "? ")
-        all_fat.append(int(fat))
+        all_fat.append(fat)
 
         # Calculate Kjs for each patient, and add it to the appropriate List
         kilojoules_unrounded = (4.18 * (4 * protein + 4 * carbs + 9.30 * fat))
