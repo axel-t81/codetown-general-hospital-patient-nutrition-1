@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
 """
-Module Docstring
+This module takes patient nutrional info from hospital staff.
+It then calculates the average protein, carbohydrates, fat, and kilojoules for all patients.
 """
-
-# Program Details to Provide
+# Program Details
 __author__ = "Axel Tracy"
-__version__ = "0.1.0"
-__license__ = "None. All Rights Reserved."
+__version__ = "0.1.13"
 
 
 # Initialise empty Lists for each nutritional macro
@@ -28,6 +27,7 @@ line = "*"
 # The guide he pointed me to was here: https://stackoverflow.com/questions/23294658/asking-the-user-for-input-until-they-give-a-valid-response
 # For learning quickly about Try and Except, this guide was used: https://www.youtube.com/watch?v=MImAiZIzzd4
 def non_negative_only(prompt):
+    """Validate patient number input."""
     while True:
         try:
             value = float(input(prompt))
@@ -45,6 +45,7 @@ def non_negative_only(prompt):
 # A function to collect valid input for patients numbers.
 # This function validates input to confirm (a) it is an integer to count people, and (b) that it is positive and above zero.
 def positive_int_only(prompt):
+    """Validate the nutritional macro input."""
     while True:
         try:
             value = int(input(prompt))
@@ -66,6 +67,7 @@ def positive_int_only(prompt):
 # 2) A alternative option if there an extremely large number with 13 to 30 digits, which should be highly unlikely.
 # 3) A final catch-all case, to tie up any number that isn't covered by the last two options.
 def right_align(input_string):
+    """Calculate the length of the input string and align string to the right."""
     info = input_string
     characters = len(info)
     if characters <= 12:
@@ -79,7 +81,7 @@ def right_align(input_string):
 
 # The main function; guarded by the diet.py script entry point below.
 def main():
-
+    """Main entry point of program."""
     # For UI and user-friendliness, provide feedback to user of program start/entry point.
     print("\n" + line*100)
     print("WELCOME TO THE CODETOWN GENERAL HOSPITAL PATIENT NUTRITION SYSTEM:")
@@ -153,13 +155,16 @@ def main():
 # This code in this conditional statement runs when executed as a script from the command line; the file object passing to the interpreter evaluates as True.
 # But this code will not run when functions are imported via a module; only the function would be used externally.
 if __name__ == "__main__":
+    """This is executed when run as a script from the command line."""
     main()
 
 
 # References:
+# * https://www.python-boilerplate.com/py3+executable - For boilerplate code to start with.
 # * https://www.w3schools.com/python/ - Guidance on using in-built Python functions.
 # * https://www.geeksforgeeks.org/ - Guidance on using in-built Python functions.
 # * https://stackoverflow.com/questions/1995615/how-can-i-format-a-decimal-to-always-show-2-decimal-places - Guidance to learn about f-strings.
 # * https://chatgpt.com/c/89aff71f-f728-4fdb-96c1-9e5930a845a6 - Guidance to find out why my original input validation had false negative errors in testing.
 # * https://realpython.com/if-name-main-python/ - Guidance to learn about the if-name-main conditional statement, and why programs are set up this way.
 # * https://www.britannica.com/topic/large-numbers-1765137 - Guidance when working out how to setup the right_align function.
+# * https://packaging.python.org/en/latest/guides/making-a-pypi-friendly-readme/ - For guidance with the README.md file
