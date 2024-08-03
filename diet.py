@@ -31,11 +31,11 @@ def non_negative_only(prompt):
         try:
             value = float(input(prompt))
         except:
-            print("Sorry, I didn't understand your input. Let's try again, using a whole number or one with decimal places, as your input please.")
+            print("\nSorry, I didn't understand your input. Let's try again, using a whole number or one with decimal places, as your input please.")
             continue
 
         if value < 0:
-            print("Sorry, the amount must be a non-negative number. Please try again.")
+            print("\nSorry, the amount must be a non-negative number. Please try again.")
             continue
         else:
             break
@@ -48,11 +48,11 @@ def positive_int_only(prompt):
         try:
             value = int(input(prompt))
         except:
-            print("Sorry, I didn't understand your input. Let's try again, using a whole number to count people, as your input please.")
+            print("\nSorry, I didn't understand your input. Let's try again, using a whole number to count people, as your input please.")
             continue
 
         if value < 1:
-            print("Sorry, the number of patients must be a positive number. Please try again.")
+            print("\nSorry, the number of patients must be a positive number. Please try again.")
             continue
         else:
             break
@@ -61,9 +61,15 @@ def positive_int_only(prompt):
 def right_align(input_string):
     info = input_string
     characters = len(info)
-    blanks = 10 - characters
-    return (blanks*justify + info)
-
+    if characters < 11:
+        blanks = 10 - characters
+        return (blanks*justify + info)
+    elif (11 < characters < 31):
+        blanks = 30 - characters
+        return (blanks*justify + info)
+    else:
+        return info
+    
 # value = input("Enter string to justify: ")
 # right_justify(value)
 
@@ -111,19 +117,19 @@ def main():
     print("\n\nSTEP 2 of 2 - CALCULATED PATIENT INFORMATION:\n")
     protein_average_float = round(sum(all_protein) / len(all_protein),2)
     protein_average = right_align(str(f'{protein_average_float:.2f}'))
-    print("Protein - The average protein for all patients is:" + justify*13 + protein_average + " grams")
+    print("Protein - The average protein over all patients is:" + justify*13 + protein_average + " grams")
 
     carbs_average_float = round(sum(all_carbs) / len(all_carbs),2)
     carbs_average = right_align(str(f'{carbs_average_float:.2f}'))
-    print("Carbohydrates - The average carbohydrates for all patients is:" + justify*1 + carbs_average + " grams")
+    print("Carbohydrates - The average carbohydrates over all patients is:" + justify*1 + carbs_average + " grams")
 
     fat_average_float = round(sum(all_fat) / len(all_fat),2)
     fat_average = right_align(str(f'{fat_average_float:.2f}'))
-    print("Fat - The average fat for all patients is:" + justify*21 + fat_average + " grams")
+    print("Fat - The average fat over all patients is:" + justify*21 + fat_average + " grams")
 
     kjs_average_float = round(sum(all_kjs) / len(all_kjs),2)
     kjs_average = right_align(str(f'{kjs_average_float:.2f}'))
-    print("Kilojoules - The average kilojoules for all patients is:" + justify*7 + kjs_average + " kJs\n")
+    print("Kilojoules - The average kilojoules over all patients is:" + justify*7 + kjs_average + " kJs\n")
 
     print("\n" + line*100)
     print("THE SYSTEM IS NOW COMPLETE: YOUR PATIENTS' NUTRITIONAL INFORMATION IS NOW AVAILABLE FOR USE.\nPLEASE CLOSE THIS PROGRAM OR RUN AGAIN. THANK YOU.")
