@@ -13,7 +13,7 @@
 ### Instructions to use the program:
 
 1. Open shell (e.g. bash, zshell, etc)
-2. Change directory (cd command) to location where tgx file was extracted.
+2. Change directory (cd command) to location where tgz file was extracted.
 3. (Optional) Confirm diet.py and README.md are in directory with ls command.
 4. Run program via the following command
    4.1 For Python 3 machines: python3 diet.py

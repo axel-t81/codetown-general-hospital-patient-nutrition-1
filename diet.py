@@ -5,7 +5,7 @@ It then calculates the average protein, carbohydrates, fat, and kilojoules for a
 """
 # Program Details
 __author__ = "Axel Tracy"
-__version__ = "0.1.13"
+__version__ = "0.1.14"
 
 
 # Initialise empty Lists for each nutritional macro
