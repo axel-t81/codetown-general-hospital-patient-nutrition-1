@@ -16,6 +16,7 @@ all_carbs = []
 all_fat = []
 all_kjs = []
 
+# Initialise global variables used in program
 justify = " "
 line = "*"
 
@@ -69,23 +70,21 @@ def right_align(input_string):
         return (blanks*justify + info)
     else:
         return info
-    
-# value = input("Enter string to justify: ")
-# right_justify(value)
 
-# Guarded main function, as per https://www.python-boilerplate.com/py3+executable
-# A guarded main function prevents the program being run when it is imported elsewhere?
+# The main function; guarded by the diet.py script entry point below.
 def main():
+
     # For UI and user-friendliness, provide feedback to user of program start/entry point.
     print("\n" + line*100)
     print("WELCOME TO THE CODETOWN GENERAL HOSPITAL PATIENT NUTRITION SYSTEM:")
     print(line*100 + "\n")
+
     # Requirement 1: "request the number of patient's dietary requirements that will be entered in the interaction with the program"
     patients = positive_int_only("\nHow many patients are you collecting data for, today? ")
 
-
     # For UI and user-friendliness, provide feedback and guidance to user of where they are in the program.
     print("\n\nSTEP 1 of 2 - PATIENT NUTRITION COLLECTION:")
+
     # Requirement 2: "loop this number of times to collect the amount of protein, carbohydrates, and fat required for each patient."
     # Using range() allows the fort loop to be interable over an int
     for x in range(patients):
@@ -107,14 +106,9 @@ def main():
         kilojoules = round(kilojoules_unrounded, 4)
         all_kjs.append(kilojoules)
 
-    ## Print functions for testing and understanding by programmer
-    ## print(all_protein)
-    ## print(all_carbs)
-    ## print(all_fat)
-    ## print(all_kjs)
-
     # Calculate and Output Averages of All Four Lists
     print("\n\nSTEP 2 of 2 - CALCULATED PATIENT INFORMATION:\n")
+
     protein_average_float = round(sum(all_protein) / len(all_protein),2)
     protein_average = right_align(str(f'{protein_average_float:.2f}'))
     print("Protein - The average protein over all patients is:" + justify*13 + protein_average + " grams")
@@ -135,9 +129,11 @@ def main():
     print("THE SYSTEM IS NOW COMPLETE: YOUR PATIENTS' NUTRITIONAL INFORMATION IS NOW AVAILABLE FOR USE.\nPLEASE CLOSE THIS PROGRAM OR RUN AGAIN. THANK YOU.")
     print(line*100 + "\n")
 
+
+# This is the entry point of the diet.py program/script.
+# This code in this conditional statement runs when executed as a script from the command line; 
+# the file object passing to the interpreter evaluates as True.
+# But this code will not run when functions are imported via a module; 
+# only the function would be used externally.
 if __name__ == "__main__":
-    """ This is executed when run from the command line """
     main()
-
-
-
