@@ -2,13 +2,7 @@
 
 ## Due Date: Sunday, 4 August 2024, 11:59 PM
 
-## Name: Axel Tracy
-
-## Student Number: 220155464
-
 ## Unit: COSC110 Introduction to Programming and the UNIX Environment
-
-## Unit Coordinator: Vera Miloslavskaya
 
 ### Instructions to use the program:
 
