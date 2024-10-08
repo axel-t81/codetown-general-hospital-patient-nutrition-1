@@ -17,7 +17,7 @@ While the exact requirements of the program remain the IP of UNE, the aim of the
   | 1 | Average macronutrient levels across all patients (for procurement and meal planning reasons) |
   | 2 | Average kilojoules (kJs) across all patients (for medical and health reasons) |
 
-* The program wil then close.
+* The program will then close.
 ---
 
 ### Instructions to use the program:
